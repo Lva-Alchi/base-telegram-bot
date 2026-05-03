@@ -15,12 +15,11 @@ const { Telegraf, Markup } = require('telegraf');
 const fs = require('fs');
 const path = require('path');
 const { logSystemError, logUserError } = require('./src/utils/logger');
-const { setupDevTools } = require('./src/utils/devtools');
+const setupDevTools = require('./src/utils/devtools');
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const bot = new Telegraf(token);
 
-// =======================================
 // 1. MIDDLEWARE
 // =======================================
 bot.use(async (ctx, next) => {
@@ -72,8 +71,6 @@ bot.use(async (ctx, next) => {
     return next();
 });
 
-
-// ======================================
 // 2. AUTO-LOAD COMMANDS
 // ======================================
 bot.commandsList = new Map(); 
@@ -158,11 +155,8 @@ for (const filePath of commandFiles) {
 }
 console.log('--------------------------------\n');
 
-
-// ======================================
 // 3. BUTTON INTERACTION 
 // ======================================
-
 bot.action('btn_login', async (ctx) => {
     await ctx.answerCbQuery();
     const startCommand = bot.commandsList.get('login');
@@ -204,10 +198,9 @@ bot.action('action_tutup', async (ctx) => {
     await ctx.deleteMessage();
 });
 
-
-// ====================================
 // 4. START THE BOT
-// ====================================
+// ======================================
+setupDevTools(bot);
 connectDB();
 bot.catch((err, ctx) => {
     console.error(`[TELEGRAF ERROR]`, err);

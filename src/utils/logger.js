@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { Telegraf } = require('telegraf');
 
 //Define 'log file' location
 const errorDir = path.join(__dirname, '../../logs');

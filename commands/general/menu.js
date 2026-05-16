@@ -1,4 +1,5 @@
 const { Markup } = require('telegraf');
+const t = require('../../src/utils/i18n');
 
 module.exports = {
     name: 'menu',
@@ -18,7 +19,7 @@ module.exports = {
                 ? cmd.name.map(n => `/${n}`).join(', ') 
                 : `/${cmd.name}`;
 
-            const cmdDesc = cmd.description || 'Tidak ada deskripsi';
+            const cmdDesc = t(ctx.dbLang, cmd.description) || 'Tidak ada deskripsi';
 
             categories[categoryName].push({ names: cmdNames, desc: cmdDesc });
         }

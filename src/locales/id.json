@@ -9,5 +9,7 @@
   "wrong_format": "*Format salah!*\nGunakan:\n",
   "user:notfound": "❌ User tidak ditemukan!",
   "success:setlimit": "✅ Limit user berhasil diubah ke *{amount}*",
-  "desc:setlimit": "Mengubah jumlah limit user"
+  "desc": {
+    "setlimit": "Mengubah jumlah limit user"
+  }
 }

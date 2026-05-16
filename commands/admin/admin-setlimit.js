@@ -3,7 +3,7 @@ const t = require('../../src/utils/i18n.js');
 
 module.exports = {
     name: 'setlimit',
-    description: t(ctx.dbLang, 'desc:setlimit'),
+    description: 'desc.setlimit',
     showInMenu: true,
     async execute(ctx) {
         // 1. Cek Admin

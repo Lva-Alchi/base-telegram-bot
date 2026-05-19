@@ -43,7 +43,7 @@ class JsonUserService {
     /**
      * Creating new user to database
      */
-    async createUser(telegramId, username, language = 'id') {
+    async createUser(telegramId, username, language = 'en') {
         const db = await this._readDB();
         
         const newUser = {
